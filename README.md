@@ -8,5 +8,5 @@ Team Members
 - Zhonghua Bao
 - Anirudh Das Bezzam jaja sfdds
 - Vignesh Mohan
-- Vineet Singh
 - Shrey Vaity
+- Vineet Singh
