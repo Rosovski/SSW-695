@@ -6,7 +6,7 @@ and we are making a local life e-commerce platform.
 Team Members
 
 - Zhonghua Bao
-- Anirudh Das Bezzam jaja sfdds
+- Anirudh Das Bezzam
 - Vignesh Mohan
 - Vineet Singh
 - Shrey Vaity
