@@ -7,6 +7,6 @@ Team Members
 
 - Zhonghua Bao
 - Anirudh Das Bezzam
-- Vignesh Mohan aasasas
+- Vignesh Mohan 
 - Shrey Vaity
 - Vineet Singh
