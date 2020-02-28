@@ -9,4 +9,4 @@ Team Members
 - Anirudh Das Bezzam
 - Vignesh Mohan
 - Shrey Vaity
-- Vineet Singh
+- Vineet Singh V
