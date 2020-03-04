@@ -5,25 +5,30 @@ from .models import Product
 
 # Create your views here.
 
+# Check if Product Exist
+
 
 def dynamic_lookup_view(request, id):
     obj = get_object_or_404(Product, id=id)
-    #obj = Product.objects.get(id=id)
     context = {
         'object': obj
     }
-    return render(request, "product/detail.html", context)
+    return render(request, "products/product_detail.html", context)
+
+# To Delete a Product
 
 
 def product_delete_view(request, id):
     obj = get_object_or_404(Product, id=id)
     if request.method == "POST":
         obj.delete()
-        return redirect('../')
+        return redirect('../../')
     context = {
         'object': obj
     }
-    return render(request, "product/product_delete.html", context)
+    return render(request, "products/product_delete.html", context)
+
+# To Create a Product
 
 
 def product_create_view(request):
@@ -35,29 +40,24 @@ def product_create_view(request):
     context = {
         'form': form
     }
-    return render(request, "product/product_create.html", context)
+    return render(request, "products/product_create.html", context)
+
+# View Product on Product Page
 
 
 def product_detail_view(request):
-    obj = Product.objects.get(id=1)
+    obj = Product.objects.get(id=5)
     context = {
         'object': obj
     }
-    return render(request, "product/detail.html", context)
+    return render(request, "products/product_detail.html", context)
+
+# List of all the Products
 
 
-"""
-def product_create_view(request):
-    my_form = RawProductForm()
-    if request.method == 'POST':
-        my_form = RawProductForm(request.POST)
-        if my_form.is_valid():
-            #Data is correct
-            print(my_form.cleaned_data)
-        else:
-            print(my_form, errors)
+def product_list_view(request):
+    queryset = Product.objects.all()
     context = {
-        "form": my_form
+        "object_list": queryset
     }
-    return render(request, "product/product_create.html", context)
-"""
+    return render(request, "products/product_list.html", context)

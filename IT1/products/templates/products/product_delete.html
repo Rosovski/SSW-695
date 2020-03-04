@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<from action='.' method='POST'>{% csrf_token %}
+<form action='.' method='POST'>{% csrf_token %}
 <h1>Do you want to Delete this Product "{{object.title}}"?</h1>
 <p><input type='submit' value='Yes' /> <a href='../'>Cancel</a></p>
 </form>
