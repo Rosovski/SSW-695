@@ -13,17 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
 from django.urls import include, path
 from pages.views import home_view, contact_view, about_view
+from products.views import search
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home_view, name='home'),
     path('contact/', contact_view),
     path('about/', about_view),
     path('admin/', admin.site.urls),
+    path('s/', search, name='search'),
+
 
     # Products App
+
     path('products/', include('products.urls')),
 
     # Restaurent App
@@ -32,4 +41,4 @@ urlpatterns = [
 
     # Recommendation App
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

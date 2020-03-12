@@ -2,6 +2,11 @@
 
 {% block content %}
 <h3>Hello{{object.title}}</h3>
+{%if object.image%}
+    <img src="{{  object.image.url  }}" class="img-responsive" alt="image-{{object.title}}"/>
+{%endif%}
 {% if object.description %}{{object.description}}{% else %}Description coming soon{% endif %}
-<p>{{object.price}}</p>
+<p>Price: ${{object.price}}</p>
+<p>Store Name: {{object.store}}</p>
+<button class="btn btn-primary" type="submit">Add to Cart</button>
 {% endblock content %}

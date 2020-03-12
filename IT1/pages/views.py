@@ -5,13 +5,13 @@ from django.shortcuts import render
 
 
 def home_view(request, *args, **kwargs):
+
     return render(request, 'home.html', {})
 
 
 def about_view(request, *args, **kwargs):
     my_context = {
         "my_text": "This is about us",
-        "this_is_true": True,
         "my_number": "202342141224",
         "my_list": ["Shrey", "Vineet", "Vignesh", "Bao", "Anirudh"]
     }
