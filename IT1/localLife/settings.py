@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'pages',
+    "crispy_forms",
     'register.apps.RegisterConfig',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'localLife.urls'
+
+CRISPY_TEMPLATE_PACK="bootstrap4"   
 
 TEMPLATES = [
     {
@@ -126,3 +128,6 @@ STATIC_URL = '/static/'
 # new for media upload
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'products/media')
+
+
+

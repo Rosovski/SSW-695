@@ -31,12 +31,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('s/', search, name='search'),
     path("register/", v.register, name="register"), 
-
+    path('', include("django.contrib.auth.urls")),
+    
 
     # Products App
 
     path('products/', include('products.urls')),
-
+    
     # Restaurent App
 
     # User App
