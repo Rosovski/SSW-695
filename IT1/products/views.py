@@ -2,6 +2,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ProductForm, RawProductForm
 from .models import Product
+from django.db.models import Q
 
 # Create your views here.
 
@@ -32,7 +33,7 @@ def product_delete_view(request, id):
 
 
 def product_create_view(request):
-    form = ProductForm(request.POST or None)
+    form = ProductForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         form = ProductForm()
@@ -61,3 +62,20 @@ def product_list_view(request):
         "object_list": queryset
     }
     return render(request, "products/product_list.html", context)
+
+# Search Field - Products
+
+
+def search(request):
+    try:
+        q = request.GET.get("q")
+    except:
+        q = None
+    if q:
+        queryset = Product.objects.filter(title__icontains=q)
+        context = {'query': q, 'products': queryset}
+        template = 'products/results.html'
+    else:
+        template = 'products/home.html'
+        context = {}
+    return render(request, template, context)

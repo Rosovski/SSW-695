@@ -7,22 +7,20 @@ class ProductForm(forms.ModelForm):
     title = forms.CharField()
     description = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'My description', 'rows': 6}))
-    price = forms.DecimalField()
+    price = forms.DecimalField(),
+    image = forms.ImageField(),
+    store = forms. CharField(),
 
     class Meta:
         model = Product
         fields = [
             'title',
             'description',
-            'price'
+            'image',
+            'price',
+            'store',
+
         ]
-    
-    #Writig for User Registration
-    def clean_email(self, *args, **kwargs):
-        email = self.cleaned_data.get('email')
-        if not email.endswith("edu"):
-            return forms.ValidationError("This is not a valid title")
-        return email
 
 
 class RawProductForm(forms.Form):
