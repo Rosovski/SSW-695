@@ -42,7 +42,18 @@ def product_create_view(request):
         'form': form
     }
     return render(request, "products/product_create.html", context)
+# edit view
 
+
+def product_update_view(request, id=id):
+    obj = get_object_or_404(Product, id=id)
+    form = ProductForm(request.POST or None, instance=obj)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "products/product_create.html", context)
 # View Product on Product Page
 
 

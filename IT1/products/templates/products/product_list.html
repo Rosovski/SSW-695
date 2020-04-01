@@ -1,10 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <style type="text/css">
+    html,
+    body,
+    header,
+    .carousel {
+      height: 60vh;
+    }
 
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+  </style>
+</head>
+<div class="col pb-5">
+<img src="https://cdn-images.zety.com/pages/retail_cover_letter_example_1.jpg" class="img-fluid" alt="Responsive image">
+</div>
 <div class="container">
 <h3>Products</h3>
 <p>These are the listed Products by the store owner</p>
+
 <div class=row>
 {% for instance in object_list %}
           <!--Grid column-->
@@ -17,6 +63,8 @@
               <div class="view overlay">
               {%if instance.image %}
     <img src="{{  instance.image.url  }}" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
+    {% else %}
+    <img src="http://placehold.it/700x400" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
 {%endif%}
                 <a>
                   <div class="mask rgba-white-slight"></div>
@@ -41,7 +89,7 @@
                   <strong>{{instance.price}}$</strong>
                 </h4>
               <!-- Default input -->
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+              <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
 
