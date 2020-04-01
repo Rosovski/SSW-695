@@ -1,16 +1,28 @@
 # views.py
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import logout, authenticate, login
 from .forms import RegisterForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout, authenticate, login
 
 # Create your views here.
+<<<<<<< HEAD
 # def register(response):
 #     if response.method == "POST":
 # 	    form = RegisterForm(response.POST)
 # 	    if form.is_valid():
 # 	        form.save()
 
+=======
+
+# def register(response):
+#     if response.method == "POST":
+# 	    form = RegisterForm(response.POST)
+# 	    if form.is_valid():
+# 	        form.save()
+
+>>>>>>> Dev_branch_1
 # 	    return redirect("/login")
 #     else:
 # 	    form = RegisterForm()
@@ -36,4 +48,8 @@ def register(request):
     form = UserCreationForm
     return render(request = request,
                   template_name = "register.html",
+<<<<<<< HEAD
                   context={"form":form})
+=======
+                  context={"form":form})
+>>>>>>> Dev_branch_1
