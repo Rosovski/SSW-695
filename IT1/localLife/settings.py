@@ -55,7 +55,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'localLife.urls'
 
-CRISPY_TEMPLATE_PACK="bootstrap4"   
+CRISPY_TEMPLATE_PACK="bootstrap4"  
+
+LOGIN_REDIRECT_URL = '/products'        
 
 LOGIN_REDIRECT_URL = '/products'
 
