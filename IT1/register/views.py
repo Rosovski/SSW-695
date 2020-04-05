@@ -1,9 +1,9 @@
 # views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import login, logout, authenticate
 from .forms import RegisterForm
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -39,3 +39,14 @@ def register(request):
     return render(request = request,
                   template_name = "register.html",
                   context={"form":form})
+
+def login_request(request):
+    form = AuthenticationForm()
+    return render(request = request,
+                  template_name = "templates/login.html",
+                  context={"form":form})
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("main:homepage")
