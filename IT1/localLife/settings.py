@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'pages',
+    'register',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'localLife.urls'
+
+CRISPY_TEMPLATE_PACK = "bootstrap3"
+
+LOGIN_REDIRECT_URL = '/products'
 
 TEMPLATES = [
     {

@@ -75,19 +75,23 @@
               <!--Card content-->
               <div class="card-body text-center">
                 <!--Category & Title-->
+
+                
                 <a href={{instance.get_absolute_url}} class="grey-text">
-                  <h5>{{instance.title}}</h5>
+                                  <h5 class="card-title">
+                  <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.title}}</a>
+                </h5>
                 </a>
-                <h5>
-                  <strong>
+                <h8>
+                  
                     <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store}}
                     </a>
-                  </strong>
-                </h5>
+                  
+                </h8>
 
-                <h4 class="font-weight-bold blue-text">
-                  <strong>{{instance.price}}$</strong>
-                </h4>
+                <h5>
+                  ${{instance.price}}
+                </h5>
               <!-- Default input -->
               <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>

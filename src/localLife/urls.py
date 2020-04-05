@@ -19,6 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 from pages.views import home_view, contact_view, about_view
 from products.views import search
+from register import views as v
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,6 +30,8 @@ urlpatterns = [
     path('about/', about_view),
     path('admin/', admin.site.urls),
     path('s/', search, name='search'),
+    path("register/", v.register, name="register"),
+    path('', include("django.contrib.auth.urls")),
 
 
     # Products App
