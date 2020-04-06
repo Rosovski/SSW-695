@@ -70,6 +70,17 @@
           </li>
         </ul>
 
+        {% if user.is_authenticated %}
+        <a href="/profile">{{user.username|title}}</a></li>
+        <!-- <li class="nav-item"> -->
+          <a href="/logout" class="nav-link border border-light rounded waves-effect"
+            target="_self">
+           Log Out
+          </a>
+        </li>
+      </ul>
+      {% endif %}
+
       </div>
 
     </div>

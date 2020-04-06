@@ -20,6 +20,8 @@ from django.urls import include, path
 from pages.views import home_view, contact_view, about_view
 from products.views import search
 from register import views as v
+from users import views as user_views
+from django.contrib.auth import views as auth_views
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -34,7 +36,8 @@ urlpatterns = [
     path('', include("django.contrib.auth.urls")),
     path("login", v.login_request, name="login"),
     path("logout", v.logout_request, name="logout"),
-
+    path('profile/', user_views.profile, name='profile'),
+  
     # Products App
 
     path('products/', include('products.urls')),
