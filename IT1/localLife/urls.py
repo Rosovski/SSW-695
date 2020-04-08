@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import include, path
-from pages.views import home_view, contact_view, about_view
+from pages.views import home_view, contact_view, about_view, profile_view
 from products.views import search
 from register import views as v
 from users import views as user_views
@@ -29,6 +29,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', home_view, name='home'),
     path('contact/', contact_view),
+    path('profile/', profile_view),
     path('about/', about_view),
     path('admin/', admin.site.urls),
     path('s/', search, name='search'),
