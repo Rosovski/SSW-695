@@ -71,11 +71,12 @@
         </ul>
 
         {% if user.is_authenticated %}
-        <a href="/profile">{{user.username|title}}</a></li>
+        <a href="/register">{{user.username|title}}</a></li>
         <!-- <li class="nav-item"> -->
           <a href="/logout" class="nav-link border border-light rounded waves-effect"
             target="_self">
            Log Out
+           {% if just_logged_out %}  You are successfully logged out {% endif %}
           </a>
         </li>
       </ul>

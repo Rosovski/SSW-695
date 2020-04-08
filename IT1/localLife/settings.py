@@ -58,7 +58,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 LOGIN_REDIRECT_URL = '/products'
 
-# LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = '/login'
 
 TEMPLATES = [
     {
