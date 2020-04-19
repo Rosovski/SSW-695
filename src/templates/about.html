@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>About Page</h2>
+<p>This is the Life About page</p>
+
+<p>
+{{my_text}}, {{my_number}}
+</p>
+
+<ul>
+{% for abc in my_list %}
+
+    <li>{{forloop.counter}}-{{abc}}</li>
+
+{% endfor %}
+</ul>
+
+{% endblock content %}
