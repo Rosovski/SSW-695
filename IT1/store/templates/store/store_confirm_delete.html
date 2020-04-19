@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    .border-bottom {
+        text-align: center;
+    }
+    .content-section {
+        background: transparent;
+        border-radius: 3px;
+        margin: 20px 550px 200px 320px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px grey;
+        padding: 15px;
+        width: 70%;
+    }
+    .for-group .btn-outline-danger {
+        width: 40%;
+        background-color: red;
+        color: white;
+        text-transform: uppercase;
+        margin: 0px 50px 0px 145px;
+    }
+    .for-group .btn-outline-secondary {
+        width: 40%;
+        background-color: #1E90FF;
+        color: white;
+        text-transform: uppercase;
+        margin: 0px 50px 0px 145px;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            <!-- Cross-site Request Forgery token for added security -->
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Store!</legend>
+                <h2>Are you sure you want to delete store "{{ object.restaurant_name }}"</h2>
+            </fieldset>
+            <div class="for-group">
+                <button class="btn btn-outline-danger mb-2" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary mb-2" href="{% url 'store-detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

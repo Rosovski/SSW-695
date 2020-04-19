@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    .mr-2 {
+        text-transform: capitalize;
+    }
+    .text-muted {
+        text-transform: capitalize;
+    }
+    .content-section {
+        background: transparent;
+        border-radius: 3px;
+        margin: 20px 550px 0px 20px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px grey;
+        padding: 15px;
+        width: 70%;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="">{{ store.store_name }}</a>
+                <small class="text-muted">{{ store.city }}</small>
+                <small class="text-muted ml-4">Mobile: {{ store.mobile }}</small>
+
+
+            </div>
+            <p class="article-content">{{ store.description }}</p>
+            {% if object.owner == user %}
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'store-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'store-delete' object.id %}">Delete</a>
+            {% endif %}
+        </div>
+    </article>
+{% endblock content %}

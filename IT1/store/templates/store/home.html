@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    .mr-2 {
+        text-transform: capitalize;
+    }
+    .text-muted {
+        text-transform: capitalize;
+    }
+    .content-section {
+        background: transparent;
+        border-radius: 3px;
+        margin: 20px 550px 30px 35px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px grey;
+        padding: 15px;
+        width: 70%;
+    }
+    .for-group .btn {
+        width: 40%;
+        background-color: #1E90FF;
+        color: white;
+        text-transform: uppercase;
+        margin: 0px 50px 0px 145px;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+    {% for store in stores %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="{% url 'store-detail' store.id %}">{{ store.store_name }}</a>
+                    <small class="text-muted">{{ store.city }}</small>
+                    <small class="text-muted ml-4">Mobile: {{ store.mobile }}</small>
+                </div>
+                <p>{{ store.description }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

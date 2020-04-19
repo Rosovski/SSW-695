@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block style %}
+<style>
+    .border-bottom {
+        text-align: center;
+    }
+    .content-section {
+        background: transparent;
+        border-radius: 3px;
+        margin: 20px 550px 200px 320px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px grey;
+        padding: 15px;
+        width: 70%;
+    }
+    .for-group .btn {
+        width: 40%;
+        background-color: #1E90FF;
+        color: white;
+        text-transform: uppercase;
+        margin: 0px 50px 0px 145px;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            <!-- Cross-site Request Forgery token for added security -->
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h1>{{ user.groups. }}</h1>
+                <legend class="border-bottom mb-4">Register Your Store!</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="for-group">
+                <button class="btn btn-outline-info mb-2" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

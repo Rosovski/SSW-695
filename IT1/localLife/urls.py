@@ -40,13 +40,10 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
   
     # Products App
-
     path('products/', include('products.urls')),
 
-    # Restaurent App
+    # Store App
+    path('', include('store.urls'))
 
-    # User App
-
-    # Recommendation App
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
