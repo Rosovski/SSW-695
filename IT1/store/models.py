@@ -38,7 +38,7 @@ class Store(models.Model):
     registration_date = models.DateField(default=timezone.now)
 
     def __repr__(self):
-        return self.restaurant_name
+        return self.store_name
 
     # un-comment if you want to navigate to Store detail page after creating a new store.
     def get_absolute_url(self):

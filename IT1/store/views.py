@@ -14,7 +14,7 @@ def home(request):
 
 class StoreListView(ListView):
     model = Store
-    template_name = 'store/home.html' # <app>/<model>_<viewtype>.html
+    template_name = 'store/home.html'  # <app>/<model>_<view_type>.html
     context_object_name = 'stores'
 
 
@@ -25,8 +25,8 @@ class StoreDetailView(DetailView):
 class StoreCreateView(LoginRequiredMixin, CreateView):
     model = Store
     fields = ['store_name', 'description', 'store_address', 'store_address_2', 'mobile',
-              'email', 'city', 'state']
-    success_url = '/' # navigate to home page after creating a new store.
+              'email', 'city', 'state', 'country']
+    success_url = '/'  # navigate to home page after creating a new store.
 
     # uncomment when owner is added in models.py
     def form_valid(self, form):
@@ -38,7 +38,7 @@ class StoreUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Store
     fields = ['store_name', 'description', 'store_address', 'store_address_2', 'mobile',
               'email', 'city', 'state']
-    success_url = '/' # navigate to home page after creating a new store.
+    success_url = '/'  # navigate to home page after creating a new store.
 
     # uncomment when owner is added in models.py
     def form_valid(self, form):
