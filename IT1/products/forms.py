@@ -1,15 +1,25 @@
 from django import forms
+from store.models import Store
 
 from .models import Product
 
 
+def store_count():
+    context = {
+        'stores': Store.objects.all()
+    }
+
+    return render(request, 'store/home.html', context)
+
+
 class ProductForm(forms.ModelForm):
+
     title = forms.CharField()
     description = forms.CharField(widget=forms.Textarea(
         attrs={'placeholder': 'My description', 'rows': 6}))
     price = forms.DecimalField(),
     image = forms.ImageField(),
-    store = forms. CharField(),
+    store = forms.CharField(),
 
     class Meta:
         model = Product
