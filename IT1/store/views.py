@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Store
+from products.models import Product
 
 
 def home(request):
@@ -67,3 +68,21 @@ class StoreDeleteView(LoginRequiredMixin, DeleteView):
 
 # def about(request):
 #     return render(request, 'store/about.html')  # {'title': 'About'}
+
+# trial
+
+def product_list_view(request):
+    queryset = Product.objects.all()
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "store/store_detail.html", context)
+
+
+class IndexView(DetailView):
+    model = Store
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(IndexView, self).get_context_data(*args, **kwargs)
+        context['products'] = Product.objects.all()
+        return context

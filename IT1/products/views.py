@@ -1,10 +1,17 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .forms import ProductForm
-from .models import Product
-from store.models import Store
 
+from django.shortcuts import render, get_object_or_404, redirect
+from .forms import ProductForm, RawProductForm
+from .models import Product
+from django.db.models import Q
+from store.models import Store
+from django.contrib.auth.models import User
+from django.views.generic import ListView
+
+# Create your views here.
 
 # Check if Product Exist
+
+
 def dynamic_lookup_view(request, id):
     obj = get_object_or_404(Product, id=id)
     context = {
@@ -89,3 +96,17 @@ def search(request):
         template = 'products/home.html'
         context = {}
     return render(request, template, context)
+
+
+
+# trial
+# class IndexView(ListView):
+#     context_object_name = 'prod_list'
+#     template_name = 'store/store_detail.html'
+#     queryset = Product.objects.all()
+
+#     def get_context_data(self, **kwargs):
+#         context = super(IndexView, self).get_context_data(**kwargs)
+#         context['name'] = Product.objects.all()
+#         context['owner_id'] = User.objects.all()
+#         return context

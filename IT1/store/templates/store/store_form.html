@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% extends "store/base.html" %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block style %}
 <style>
@@ -31,9 +31,8 @@
             <!-- Cross-site Request Forgery token for added security -->
             {% csrf_token %}
             <fieldset class="form-group">
-                <h1>{{ user.groups. }}</h1>
                 <legend class="border-bottom mb-4">Register Your Store!</legend>
-                {{ form|crispy }}
+                {{ form.as_p }}
             </fieldset>
             <div class="for-group">
                 <button class="btn btn-outline-info mb-2" type="submit">Register</button>

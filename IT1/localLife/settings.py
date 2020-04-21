@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'products',
     'pages',
     'register',
-    #'CRISPY_FORMS',
     'store',
 ]
 
@@ -59,8 +58,6 @@ ROOT_URLCONF = 'localLife.urls'
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
 LOGIN_REDIRECT_URL = '/products'
-
-LOGOUT_REDIRECT_URL = '/login/'
 
 TEMPLATES = [
     {
@@ -133,5 +130,3 @@ STATIC_URL = '/static/'
 # new for media upload
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'products/media')
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'

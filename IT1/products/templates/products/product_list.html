@@ -48,10 +48,52 @@
 <img src="https://cdn-images.zety.com/pages/retail_cover_letter_example_1.jpg" class="img-fluid" alt="Responsive image">
 </div>
 <div class="container">
-<h3>Products</h3>
-<p>These are the listed Products by the store owner</p>
-
+<h3 class="text-center">Products</h3>
+<p class="text-center">These are the listed Products by the store owner</p>
+</br>
 <div class=row>
+{% for instance in object_list %}
+<div class="col-lg-3 col-md-6 mb-4">
+            <div class="card h-20">
+            <div class="card-img-top">
+              {%if instance.image %}
+    <img src="{{  instance.image.url  }}" class="card-img-top" alt="image-{{instance.title}}"/>
+    {% else %}
+    <img src="http://placehold.it/700x400" class="card-img-top" alt="image-{{instance.title}}"/>
+{%endif%}
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+             
+              <div class="card-body">
+                <h4 class="card-title">
+                                <a href={{instance.get_absolute_url}} class="grey-text">
+                                  <h5 class="card-title">
+                  <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.title}}</a>
+                </h5>
+                </a>
+                </h4>
+
+                                <h5>
+                  ${{instance.price}}
+                </h5>
+                                <h8>
+                  
+
+                                        <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store.store_name}}
+                    </a>
+                  
+                </h8>
+                <p class="card-text text-truncate">{{instance.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+</div>
+
+
+{% comment %} <div class=row>
 {% for instance in object_list %}
           <!--Grid column-->
           <div class="col-lg-3 col-md-6 mb-4">
@@ -84,15 +126,16 @@
                 </a>
                 <h8>
                   
-                    <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store.store_name}}
+                    <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store}}
                     </a>
                   
                 </h8>
 
-                <h5>
+                                <h5>
                   ${{instance.price}}
                 </h5>
               <!-- Default input -->
+              
               <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
@@ -155,5 +198,5 @@
         </ul>
       </nav>
       <!--Pagination-->
-</div>
+</div> {% endcomment %}
 {% endblock content %}

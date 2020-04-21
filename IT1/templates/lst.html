@@ -1,0 +1,112 @@
+<div class="cotainer">
+<h4 class="text-center">Products List</h4>
+<br/>
+{% for object in stores %}
+{{object.id}}
+{% endfor %}
+{% for instance in object_list %}
+{{instance.id}}
+{% endfor %}
+
+{% block content %}
+<div class="col-sm-9">
+<div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-20">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Yoda T-shirt</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-20">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Table</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+              </div>
+            </div>
+          </div>
+
+<div class=row>
+{% for instance in object_list %}
+    {% if instance.store == "Karma Caf" %}
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card image-->
+              <div class="view overlay">
+              {%if instance.image %}
+    <img src="{{  instance.image.url  }}" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
+    {% else %}
+    <img src="http://placehold.it/700x400" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
+{%endif%}
+                <a>
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+              </div>
+              <!--Card image-->
+
+              <!--Card content-->
+              <div class="card-body text-center">
+                <!--Category & Title-->
+
+                
+                <a href={{instance.get_absolute_url}} class="grey-text">
+                                  <h5 class="card-title">
+                  <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.title}}</a>
+                </h5>
+                </a>
+                <h8>
+                  
+                    <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store}}
+                    </a>
+                  
+                </h8>
+
+                <h5>
+                  ${{instance.price}}
+                </h5>
+              <!-- Default input -->
+              
+              <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+              </button>
+
+
+              </div>
+              <!--Card content-->
+
+            </div>
+            <!--Card-->
+
+          </div>
+          <!--Grid column-->
+    <!{{instance.id}}- <a href="{{instance.get_absolute_url}}"><!{{instance.title}}</a>
+  
+    {%if instace.image%}
+        <img src="{{  instance.image.url  }}" class="img-responsive" alt="image-{{instance.title}}"/>
+    {%endif%}
+
+    
+    </p>    
+    {% endif %}
+{% endfor %}
+
+</div>
+{% endblock content %}
+</div>
+</div>
