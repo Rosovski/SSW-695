@@ -30,6 +30,8 @@ def product_create_view(request):
     form = ProductForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         product_instance = form.save(commit=False)
+        print(type(product_instance))
+        print(product_instance)
         stores = Store.objects.all()
         for store in stores:
             if store.owner_id == request.user.id:

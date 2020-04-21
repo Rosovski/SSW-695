@@ -2,8 +2,6 @@ from django import forms
 from .models import Product
 
 
-
-
 class ProductForm(forms.ModelForm):
     title = forms.CharField()
     description = forms.CharField(widget=forms.Textarea(
