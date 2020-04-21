@@ -1,0 +1,56 @@
+{% extends "store/base.html" %}
+{% load crispy_forms_tags %}
+
+<<<<<<< HEAD
+{% block content %}
+    <div class="content-section">
+        <div class="media">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div>
+=======
+{% block style %}
+<style>
+    .content-section {
+        background: transparent;
+        border-radius: 3px;
+        margin: 30px 550px 200px 320px;
+        border: 1px solid #eee;
+        box-shadow: 0 2px 2px grey;
+        padding: 15px;
+        width: 60%;
+    }
+    .for-group .btn {
+        width: 40%;
+        background-color: #1E90FF;
+        color: white;
+        text-transform: uppercase;
+        margin: 0px 50px 0px 120px;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+    <div class="content-section">
+{#        <div class="media">#}
+{#            <div class="media-body">#}
+{#                <h2 class="account-heading">{{ user.username }}</h2>#}
+{#                <p class="text-secondary">{{ user.email }}</p>#}
+{#            </div>#}
+{#        </div>#}
+>>>>>>> cb63af76e6e079dfe5bbd22bbc8f57199ccf9375
+        <form method="POST" enctype="multipart/form-data">
+            <!-- Cross-site Request Forgery token for added security -->
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4 text-center">Edit Profile</legend>
+                {{ u_form|crispy }}
+            </fieldset>
+            <div class="for-group">
+                <button class="btn btn-outline-info mb-2" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

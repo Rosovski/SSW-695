@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'products',
     'pages',
     'register',
-    'crispy_forms',
+    #'CRISPY_FORMS',
     'store',
 ]
 

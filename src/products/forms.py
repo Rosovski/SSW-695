@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Product
 
 
@@ -9,7 +8,6 @@ class ProductForm(forms.ModelForm):
         attrs={'placeholder': 'My description', 'rows': 6}))
     price = forms.DecimalField(),
     image = forms.ImageField(),
-    store = forms. CharField(),
 
     class Meta:
         model = Product
@@ -18,8 +16,6 @@ class ProductForm(forms.ModelForm):
             'description',
             'image',
             'price',
-            'store',
-
         ]
 
 
