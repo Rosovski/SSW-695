@@ -1,4 +1,4 @@
-{% extends "store/base.html" %}
+{% extends "base.html" %}
 {% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block style %}
@@ -26,6 +26,8 @@
 {% endblock style %}
 
 {% block content %}
+<br>
+<div class="container card  w-10"/>
     <div class="content-section">
         <form method="POST">
             <!-- Cross-site Request Forgery token for added security -->
@@ -39,4 +41,5 @@
             </div>
         </form>
     </div>
+</div>
 {% endblock content %}

@@ -1,90 +1,5 @@
-<<<<<<< HEAD
-{#{% extends "store/base.html" %}#}
-{#{% load crispy_forms_tags %}#}
-{##}
-{#{% block content %}#}
-{#    <div class="content-section">#}
-{#        <form method="POST">#}
-{#            <!-- Cross-site Request Forgery token for added security -->#}
-{#            {% csrf_token %}#}
-{#            <fieldset class="form-group">#}
-{#                <legend class="border-bottom mb-4 text-center">Login</legend>#}
-{#                {{ form|crispy }}#}
-{#            </fieldset>#}
-{#            <div class="for-group">#}
-{#                <button class="btn btn-outline-info mb-2" type="submit">Login</button>#}
-{#            </div>#}
-{#        </form>#}
-{#        <div class="border-top pt-3">#}
-{#            <small class="text-muted">#}
-{#                Need an account? <a class="ml-2" href="{% url 'register' %}">Sign Up</a>#}
-{#            </small>#}
-{#        </div>#}
-{#    </div>#}
-{#{% endblock content %}#}
-
-
-<!DOCTYPE html>
-{% load crispy_forms_tags %}
-{% load static %}
-
-<html>
-<head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-        <link rel="stylesheet" type="text/css" href="{% static 'store/css/main.css' %}">
-    <style>
-        .login-form {
-            background: #F5F5F5;
-            border: initial;
-            border-radius: 3px;
-            /*margin-bottom: 20px;*/
-            margin-left: 550px;
-            margin-top: 20px;
-            display: inline-block;
-            border: 1px solid #eee;
-            box-shadow: 0 2px 2px #ccc;
-            width: 400px;
-            padding: 15px;
-        }
-        .for-group .btn {
-          width: 100%;
-          background-color: #1E90FF;
-          color: white;
-          text-transform: uppercase;
-        }
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="">Local Life <font size="15" color="#228b22" face="Times">Platform</font></a>
-                <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button> -->
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'store-home' %}">Home</a>
-                        <a class="nav-item nav-link" href="{% url 'store-about' %}">About</a>
-                    </div>
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-                        {% if user.is_authenticated %}
-                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                            <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                            <a class="nav-item nav-link" href="{% url 'login' %}">Sign in</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="login-form">
-=======
-{% extends "store/base.html" %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 
 {% block style %}
     <style>
@@ -109,7 +24,6 @@
 
 {% block content %}
     <div class="content-section">
->>>>>>> cb63af76e6e079dfe5bbd22bbc8f57199ccf9375
         <form method="POST">
             <!-- Cross-site Request Forgery token for added security -->
             {% csrf_token %}

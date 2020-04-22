@@ -22,7 +22,7 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container ">
 
           <div class="col-lg-12 col-md-6 mb-4 d-flex">
             <div class="card h-40 w-100">
@@ -78,7 +78,7 @@
                 </a>
                 <h8>
                   
-                    <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store}}
+                    <a href={{instance.get_absolute_url}}href="{% url 'store-detail' instance.store.id %}" class="dark-grey-text">{{instance.store}}
                     </a>
                   
                 </h8>

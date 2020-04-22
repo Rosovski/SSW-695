@@ -20,7 +20,7 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="http://127.0.0.1:8000/" target="_self">
-        <h2 class="blue-text bold">Local Life</h2>
+        <strong class=" navbar-brand blue-text bold">Local Life</strong>
       </a>
 
       <!-- Collapse -->
@@ -34,36 +34,38 @@
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          {% comment %} <li class="nav-item active"> {% endcomment %}
             <a class="nav-link waves-effect" href="http://127.0.0.1:8000/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          {% comment %} <li class="nav-item">
+            <a class="nav-link waves-effect" href="/products" target="_self">Products</a>
+          </li> {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="http://127.0.0.1:8000/products/" target="_self">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="http://127.0.0.1:8000/store/" target="_self">Stores</a>
+            <a class="nav-link waves-effect" href="/store" target="_self">Stores</a>
           </li>
           <li class="nav-item">
           <div class="search-bar mt-sm-2 mr-2">
-    <form class="form-inline my-2 my-lg-0" role="search" action="/s/">
+
+
+    </li>
+        <form class="form-inline my-2 my-sm-0" role="search" action="/s/">
       <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-    </li>
 </div>
         </ul>
 
         <!-- Right -->
-
-
+<!-- Navbar Right Side -->
+<div class="dropdown">
         <ul class="navbar-nav nav-flex-icons">
-             {% if user.is_authenticated %}
+             {% comment %} {% if user.is_authenticated %}
              <li class="nav-item">
                                 <a class="nav-item nav-link" href="{% url 'store-register' %}">Add Store</a>
             </li>
-                                {% comment %} <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a> {% endcomment %}
+                                <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
               <li class="nav-item">
                                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               </li>
@@ -71,17 +73,31 @@
               <li class="nav-item">
                                 <a class="nav-item nav-link" href="{% url 'login' %}">Sign in</a>
               </li>
-                            {% endif %}          
+                            {% endif %}           {% endcomment %}
+          <li class="nav-item">
+              {% if user.is_authenticated %}
+        <a class="dropbtn nav-link waves-effect">Welcome {{ user.username }}!</a>
+        <div class="dropdown-content">
+            <a href="{% url 'store-register' %}">Add Store</a>
+            {% comment %} <a href="{% url 'profile' %}">Profile</a> {% endcomment %}
+            <a href="{% url 'password_change' %}">Change Password</a>
+            <a href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+        <a class="nav-item nav-link" href="{% url 'login' %}">Sign in</a>
+    {% endif %}
+        </li>
+        
+        </div>
+
           <li class="nav-item">
                        
 
-            <a class="nav-link waves-effect">
-            
-              <span class="badge red z-depth-1 mr-1"> </span>
+            <a class="nav-link waves-effect">           
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>
+
 
           {% comment %} <li class="nav-item">
             <a href="/login" class="nav-link border border-light rounded waves-effect"
@@ -90,6 +106,11 @@
             </a>
           </li> {% endcomment %}
         </ul>
+
+
+</div>
+
+
 
       </div>
 
