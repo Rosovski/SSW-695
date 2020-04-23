@@ -1,6 +1,4 @@
 {% extends "base.html" %}
-
-{% block style %}
 <style>
     .mr-2 {
         text-transform: capitalize;
@@ -8,116 +6,69 @@
     .text-muted {
         text-transform: capitalize;
     }
-    .content-section {
-        background: transparent;
-        border-radius: 3px;
-        margin: 20px 550px 0px 20px;
-        border: 1px solid #eee;
-        box-shadow: 0 2px 2px grey;
-        padding: 15px;
-        width: 70%;
-    }
 </style>
-{% endblock style %}
 
 {% block content %}
-
-<div class="container ">
-
-          <div class="col-lg-12 col-md-6 mb-4 d-flex">
-            <div class="card h-40 w-100">
-              <div class="card-body  justify-content-center">
+<div class="container">
+    <div class="col-lg-12 col-md-6 mb-4 d-flex">
+        <div class="card h-40 w-100">
+            <div class="card-body  justify-content-center">
                 <h4 class="card-title">
-                  <a class="mr-2" href="#">{{ store.store_name }}</a>
+                    <a class="mr-2" href="#">{{ store.store_name }}</a>
                 </h4>
-                <small class="text-muted">{{ prdct_list }}</small>
                 <small class="text-muted">{{ store.city }}</small>
                 <small class="text-muted ml-4">Mobile: {{ store.mobile }}</small>
                 <p class="card-text">{{store.description}}</p>
-                            {% if object.owner == user %}
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'store-update' object.id %}">Update</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'store-delete' object.id %}">Delete</a>
-                <a class="btn btn-primary btn-sm mt-1 mb-1" href="/products/create">Add Product</a>
-            {% endif %}
-              </div>
+                {% if store.owner_id == user.id %}
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'store-update' store.id %}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'store-delete' store.id %}">Delete</a>
+                    <a class="btn btn-primary btn-sm mt-1 mb-1" href="/products/create">Add Product</a>
+                {% endif %}
             </div>
-          </div>
-<div class="container">
+        </div>
+    </div>
 
-
-<div class=row>
-{% for instance in object_list %}
-          <!--Grid column-->
-          <div class="col-lg-3 col-md-6 mb-4">
-
-            <!--Card-->
-            <div class="card">
-
-              <!--Card image-->
-              <div class="view overlay">
-              {%if instance.image %}
-    <img src="{{  instance.image.url  }}" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
-    {% else %}
-    <img src="http://placehold.it/700x400" class="card-img-top" alt="image-{{instance.title}}" height='100px' width='50px'/>
-{%endif%}
-                <a>
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-              <!--Card image-->
-
-              <!--Card content-->
-              <div class="card-body text-center">
-                <!--Category & Title-->
-
-                
-                <a href={{instance.get_absolute_url}} class="grey-text">
-                                  <h5 class="card-title">
-                  <a href={{instance.get_absolute_url}} class="dark-grey-text">{{instance.store.title}}</a>
-                </h5>
-                </a>
-                <h8>
-                  
-                    <a href={{instance.get_absolute_url}}href="{% url 'store-detail' instance.store.id %}" class="dark-grey-text">{{instance.store}}
-                    </a>
-                  
-                </h8>
-
-                <h5>
-                  ${{instance.price}}
-                </h5>
-              <!-- Default input -->
-              
-              <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
-
-
-              </div>
-              <!--Card content-->
-
-            </div>
-            <!--Card-->
-
-          </div>
-          <!--Grid column-->
-    <!{{instance.id}}- <a href="{{instance.get_absolute_url}}"><!{{instance.title}}</a>
-  
-    {%if instace.image%}
-        <img src="{{  instance.image.url  }}" class="img-responsive" alt="image-{{instance.title}}"/>
-    {%endif%}
-    
-    </p>    
-{% endfor %}
-</div>  
-
-
-
-
-{% include "lst.html" %}
+    <div class="container">
+        <div class=row>
+            {% for product in products %}
+                {% if store.id == product.store_id %}
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="view overlay">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" class="card-img-top" alt="image-{{product.title}}" height='100px' width='50px'/>
+                                {% else %}
+                                    <img src="http://placehold.it/700x400" class="card-img-top" alt="image-{{product.title}}" height='100px' width='50px'/>
+                                {% endif %}
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <div class="card-body text-center">
+                                <a class="grey-text" href="{{ product.get_absolute_url }}">
+                                    <h5 class="card-title">
+                                        <a class="dark-grey-text" href="{{ product.get_absolute_url }}">{{ product.title }} </a>
+                                    </h5>
+                                </a>
+                                <p>
+                                    {{ product.description }}
+                                </p>
+                                <h5>
+                                    ${{ product.price }}
+                                </h5>
+                                <button class="btn btn-primary btn-sm my-0 p" type="submit">Add to cart
+                                    <i class="fas fa-shopping-cart ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!{{ product.id }}- <a href="{{ product.get_absolute_url }}"><!{{ product.title }}</a>
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" class="img-responsive" alt="image-{{product.title}}"/>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 </div>
-
-
-
-
 {% endblock content %}

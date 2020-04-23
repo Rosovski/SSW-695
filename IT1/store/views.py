@@ -1,16 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Store
 from products.models import Product
 
 
-def home(request):
+def store_detail_view(request, id):
+    store = get_object_or_404(Store, id=id)
     context = {
-        'stores': Store.objects.all()
+        'store': store,
+        'products': Product.objects.all()
     }
 
-    return render(request, 'store/home.html', context)
+    return render(request, 'store/store_detail.html', context)
 
 
 class StoreListView(ListView):
@@ -19,8 +21,8 @@ class StoreListView(ListView):
     context_object_name = 'stores'
 
 
-class StoreDetailView(DetailView):
-    model = Store
+# class StoreDetailView(DetailView):
+#     model = Store
 
 
 class StoreCreateView(LoginRequiredMixin, CreateView):
