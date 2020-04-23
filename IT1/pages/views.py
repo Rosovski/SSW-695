@@ -1,12 +1,15 @@
-from django.http import HttpResponse
+from store.models import Store
 from django.shortcuts import render
 
 # Create your views here.
 
 
 def home_view(request, *args, **kwargs):
+    context = {
+        'stores': Store.objects.all()
+    }
 
-    return render(request, 'home.html', {})
+    return render(request, 'home.html', context)
 
 
 def about_view(request, *args, **kwargs):

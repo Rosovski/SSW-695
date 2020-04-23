@@ -20,7 +20,6 @@ from django.urls import include, path
 from pages.views import home_view, contact_view, about_view
 from products.views import search
 from register import views as v
-from store import views as store_views
 
 from django.conf import settings
 from django.conf.urls.static import static
