@@ -10,7 +10,8 @@
      <form method="post" class="from-group">
 	{% csrf_token %}
 	{{form.as_p}}
-	<p>Don't have an accoount? Create one <a href="/register">here</a></p>
+	<p>Don't have an account? Create one <a href="/register">here</a></p>
+	<p>Forgot Password? Click <a href="/password-reset">here</a></p>
 	<button type="submit" class="btn btn-success">Login</button>	
     </form>
 </div>
