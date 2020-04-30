@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'products',
     'pages',
     'register',
-    # 'crispy_forms',
+    'crispy_forms',
     'store',
+    'users'
 ]
 
 MIDDLEWARE = [
