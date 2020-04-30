@@ -64,13 +64,18 @@
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>
-
           <li class="nav-item">
+              {% if user.is_authenticated %}
+
+                        {% else %}
+        <a class="nav-item nav-link" href="{% url 'login' %}">Sign in</a>
+    {% endif %}
+          {% comment %} <li class="nav-item">
             <a href="/login/" class="nav-link border border-light rounded waves-effect"
               target="_self">
              Log In
             </a>
-          </li>
+          </li> {% endcomment %}
         </ul>
 
         {% if user.is_authenticated %}
