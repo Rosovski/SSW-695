@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<div class="container card w-50">
+    <form method="POST">
+        <!-- Cross-site Request Forgery token for added security -->
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Register Your Store!</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="for-group">
+            <button class="btn btn-outline-info mb-2"
+                    style="background-color: #1E90FF; color: white; width: 100%;"
+                    type="submit">Register</button>
+        </div>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

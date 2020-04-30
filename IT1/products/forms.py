@@ -1,5 +1,4 @@
 from django import forms
-
 from .models import Product, Comment
 
 
@@ -18,8 +17,6 @@ class ProductForm(forms.ModelForm):
             'description',
             'image',
             'price',
-            'store',
-
         ]
 
 
@@ -27,7 +24,6 @@ class RawProductForm(forms.Form):
     email = forms.CharField()
     description = forms.CharField(widget=forms.Textarea(attrs={'cols': 8}))
     price = forms.DecimalField()
-
 
 
 class CommentForm(forms.ModelForm):

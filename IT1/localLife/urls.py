@@ -64,13 +64,9 @@ urlpatterns = [
          name='password_reset_complete'),
     
     # Products App
-
     path('products/', include('products.urls')),
 
-    # Restaurent App
-
-    # User App
-
-    # Recommendation App
+    # Store App
+    path('', include('store.urls'))
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

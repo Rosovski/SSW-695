@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+    <div class="content-section container card w-50">
+        <form method="POST">
+            <!-- Cross-site Request Forgery token for added security -->
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Store!</legend>
+                <p>Are you sure you want to delete store "{{ object.store_name }}?"</p>
+            </fieldset>
+            <div class="for-group">
+                <button class="btn btn-outline-danger mb-2" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary mb-2" href="{% url 'store-detail' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}

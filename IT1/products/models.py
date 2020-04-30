@@ -18,7 +18,6 @@ class Product(models.Model):
         return reverse("product-detail", kwargs={"id": self.id})
 
 
-
 class Comment(models.Model):
     product = models.ForeignKey('products.Product', related_name='comments', on_delete=models.CASCADE)
     author = models.CharField(max_length=120)
@@ -27,7 +26,7 @@ class Comment(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.product.name
+        return self.product.title
     
     def get_absolute_url(self):
         return reverse("product-list")
