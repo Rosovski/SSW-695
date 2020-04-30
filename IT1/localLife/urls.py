@@ -40,7 +40,7 @@ urlpatterns = [
     path('', include("django.contrib.auth.urls")),
     # path("login", v.login_request, name="login"),
     path('login/', views.LoginView.as_view(), name='login'),
-    path("logout", v.logout_request, name="logout"),
+    path("logout/", v.logout_request, name="logout"),
     path('profile/', user_views.profile, name='profile'),
     path('password-reset/',
          auth_views.PasswordResetView.as_view(
