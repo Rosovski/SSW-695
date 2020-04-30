@@ -25,9 +25,11 @@
           <div class="p-4">
             <h3>{{object.title}}</h3>
             <div class="mb-3">
-              <a href="">
-                <span class="badge blue mr-1">{{object.store}}</span>
+            {%if object.store %}
+              <a href="{% url 'store-detail' object.store.id %}">
+                <span class="badge blue mr-1">{{object.store.store_name}}</span>
               </a>
+              {% endif %}
             </div>
             <p class="lead">
               <span>${{object.price}}</span>
